@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Trying-Kotlin-Desktop-jvm-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="Trying-Kotlin-Desktop-jvm-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="Trying-Kotlin-Desktop.jvmMain" />
+    </root>
+  </artifact>
+</component>
