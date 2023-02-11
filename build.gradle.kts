@@ -24,6 +24,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+                runtimeOnly("org.jetbrains.compose.material3:material3-desktop:1.3.0")
             }
         }
         val jvmTest by getting
@@ -39,4 +40,8 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
+}
+
+dependencies {
+//    implementation("compose.material3")
 }
