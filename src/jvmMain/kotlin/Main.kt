@@ -2,6 +2,8 @@ import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -16,11 +18,18 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 
 @Composable
-@Preview
+fun conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages) {
+            MessageCard(it)
+        }
+    }
+}
+
+@Composable
+@Preview()
 fun app() {
-    MessageCard(
-        msg = Message("Boris", "Hey, take a look at Jetpack")
-    )
+    conversation(SampleData.conversationSample)
 }
 
 data class Message(val author: String, val body: String)
@@ -42,9 +51,19 @@ fun MessageCard(msg: Message) {
 
 
         Column {
-            Text(text = msg.author, color = MaterialTheme.colors.secondaryVariant)
+            Text(
+                text = msg.author,
+                color = MaterialTheme.colors.secondaryVariant,
+                style = MaterialTheme.typography.subtitle2
+            )
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = msg.body)
+            Surface(shape = MaterialTheme.shapes.medium, elevation = 1.dp) {
+                Text(
+                    text = msg.body,
+                    modifier = Modifier.padding(all = 4.dp),
+                    style = MaterialTheme.typography.body2
+                )
+            }
         }
     }
 }
